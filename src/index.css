@@ -1,0 +1,383 @@
+:root {
+  --main-color-dark-blue: #0b0d17;
+  --main-color-white: #ffffff;
+  --main-color-light-blue: #d0d6f9;
+  --font-family-h5-subh2-nav-des: "Barlow Condensed", sans-serif;
+  --font-family-h1-4-sub1: "Bellefair", serif;
+}
+
+html {
+  overflow: hidden; /* fix boucing on the bottom */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+  /* //* When work with CSS files, the path is always considered from the 
+  /* //* location of the CSS file to the target file. When the project is built, 
+  /* //* CSS files do not get processed in a way that changes their relative paths. 
+  /* //* The public folder is treated as the root, thus the path is ...*/
+}
+
+/* -------------------- Common  --------------------- */
+
+/* Use mobile first principle */
+/* -------------- home page ------------------ */
+.home {
+  background-image: url("/public/assets/background/background-home-mobile.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: auto;
+  overflow-y: scroll;
+}
+
+.home h1 {
+  color: var(--main-color-white);
+  font-family: var(--font-family-h1-4-sub1);
+  font-size: 6.5rem;
+  font-weight: 400;
+  line-height: 0;
+  text-transform: uppercase;
+  margin: 6rem 0;
+}
+
+.home h5 {
+  color: var(--main-color-light-blue);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 2.7px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.home .description {
+  color: var(--main-color-light-blue);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6rem;
+  padding: 0 2.5rem;
+  margin: auto;
+}
+.overlay-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  padding-top: 8rem;
+}
+
+.home-text-container {
+  width: 100%;
+}
+
+/* ------------------- Header & Nav ------------------- */
+
+.header {
+  display: flex;
+  /* fixed position to avoid scroll problem  */
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  width: calc(100vw - 4rem);
+  padding: 2rem;
+  overflow: visible;
+  z-index: 30;
+}
+
+.nav-menu {
+  position: absolute;
+  color: var(--main-color-white);
+  background-color: #97979729;
+  backdrop-filter: blur(15px);
+  height: 100vh;
+  width: 55%;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2.7px;
+  /* visibility: hidden; */
+  top: 0;
+  right: -500px;
+  text-align: right;
+  padding: 2rem;
+  line-height: 3rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 40;
+}
+.nav-menu.open {
+  /* visibility: visible; */
+  right: 0;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-text {
+  text-align: left;
+  padding: 2rem 0 0 1rem;
+}
+
+.menu-text > li {
+  border-bottom: 2px solid transparent;
+  margin-right: 6rem;
+}
+
+.menu-text > li:hover {
+  border-bottom: 2px solid white;
+}
+
+.menu-bar {
+  background-color: #97979729;
+  padding: 34px 112px 34px 50px;
+  backdrop-filter: blur(24px);
+}
+
+.menu-bar > * {
+  padding: 0 20px;
+}
+.menu-open {
+  background: none;
+  border: none;
+}
+
+/* ------------------- Explore btn --------------------- */
+
+.explore-btn-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.explore-btn {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  padding: 0;
+  border: none;
+  font-family: var(--font-family-h1-4-sub1);
+  letter-spacing: 2px;
+  font-size: 1.25rem;
+  color: var(--main-color-dark-blue);
+  font-weight: 400;
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.explore-btn-bg {
+  background-color: #ffffff13;
+  height: calc(150px * 1.5);
+  width: calc(150px * 1.5);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transition: 0.6s ease-in-out;
+}
+
+/* ------------------ Other Effects -------------------- */
+
+.explore-btn-bg,
+.explore-btn,
+.menu-close,
+.menu-open :hover {
+  cursor: pointer;
+}
+
+a:link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:visited {
+  color: var(--main-color-white);
+}
+
+a:active {
+  color: #ffffff;
+}
+
+/* ------------------ Responsive -------------------- */
+
+@media (min-width: 768px) {
+  .home {
+    background: url("/public/assets/background/background-home-tablet.jpg")
+      no-repeat center/cover;
+  }
+
+  .home h1 {
+    font-size: 9rem;
+    margin: 7rem 0;
+  }
+
+  .home h5 {
+    font-size: 1.25rem;
+  }
+
+  .home .description {
+    font-family: "Barlow Condensed", sans-serif;
+    margin: auto;
+    width: 60%;
+  }
+
+  .header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    justify-content: space-between;
+    width: 100%;
+    right: 0;
+    padding: 0;
+    align-items: start;
+  }
+
+  .nav-icon {
+    padding-left: 1.8rem;
+    padding-top: 1.5rem;
+  }
+
+  .nav-menu {
+    visibility: visible;
+    position: static;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menu-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    letter-spacing: 2.7px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 3rem;
+    gap: 24px;
+  }
+
+  .menu-text > li {
+    padding: 1rem 0 0.8rem 0;
+    margin: 0;
+  }
+
+  .menu-text span {
+    display: none;
+    text-align: center;
+  }
+
+  .menu-close,
+  .menu-open {
+    display: none;
+  }
+
+  .explore-btn {
+    height: 220px;
+    width: 220px;
+  }
+
+  .explore-btn-bg {
+    height: calc(220px * 1.5);
+    width: calc(220px * 1.5);
+  }
+
+  .overlay-container {
+    padding-top: 10rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .home {
+    background: url("/public/assets/background/background-home-desktop.jpg")
+      no-repeat center/cover;
+  }
+
+  .home h1 {
+    font-size: 10rem;
+    margin: 7rem 0;
+  }
+
+  .home h5 {
+    font-size: 1.7rem;
+  }
+
+  .overlay-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    text-align: left;
+    width: 88%;
+    height: 100%;
+    margin: auto;
+    padding-top: 6rem;
+  }
+
+  .home .description {
+    font-family: "Barlow Condensed", sans-serif;
+    width: 75%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .home-text-container {
+    width: 80%;
+  }
+
+  .header {
+    display: flex;
+    position: absolute;
+    top: 2rem;
+  }
+
+  .menu-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    letter-spacing: 2.7px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 4rem;
+  }
+
+  .nav-icon {
+    padding-left: 2.5rem;
+    padding-top: 1rem;
+  }
+
+  .menu-text span {
+    display: inherit;
+    text-align: center;
+  }
+
+  .nav-decor {
+    border: solid 0.5px #ffffff3d;
+    width: 40%;
+    position: absolute;
+    top: 2.5rem;
+    left: 7rem;
+    z-index: 100;
+  }
+}
